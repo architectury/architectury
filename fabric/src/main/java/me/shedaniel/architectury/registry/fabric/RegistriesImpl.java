@@ -40,6 +40,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class RegistriesImpl {
@@ -71,7 +72,12 @@ public class RegistriesImpl {
         public <T> Registry<T> get(net.minecraft.core.Registry<T> registry) {
             return new RegistryImpl<>(registry);
         }
-        
+    
+        @Override
+        public <T> void forRegistry(ResourceKey<net.minecraft.core.Registry<T>> key, Consumer<Registry<T>> consumer) {
+            consumer.accept(get(key));
+        }
+    
         @Override
         @NotNull
         public <T extends RegistryEntry<T>> RegistryBuilder<T> builder(Class<T> type, ResourceLocation registryId) {
