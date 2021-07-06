@@ -11,6 +11,7 @@
     "client.MixinEffectInstance",
     "client.MixinGameRenderer",
     "client.MixinIntegratedServer",
+    "client.MixinItem",
     "client.MixinKeyboardHandler",
     "client.MixinMinecraft",
     "client.MixinMouseHandler",
